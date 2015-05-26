@@ -1,7 +1,11 @@
 fileFormatVersion: 2
 guid: 8ef95d64ca207f449917f64972ea5669
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: part_smokepuffs_0
+    21300002: part_smokepuffs_1
+    21300004: part_smokepuffs_2
+    21300006: part_smokepuffs_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

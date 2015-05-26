@@ -1,7 +1,9 @@
 fileFormatVersion: 2
 guid: ca1fe571da9f00d48b0b756eccdfa686
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Cab
+    21300002: Wheels
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
