@@ -12,6 +12,9 @@
     <sprites name="Core">
       <sprite>sprites\spr_block</sprite>
     </sprites>
+    <sprites name="Weapon System">
+      <sprite>sprites\spr_arrow</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -20,6 +23,9 @@
     <object>objects\obj_solid</object>
     <objects name="Core">
       <object>objects\obj_core</object>
+    </objects>
+    <objects name="Weapon System">
+      <object>objects\obj_arrow</object>
     </objects>
   </objects>
   <rooms name="rooms">
