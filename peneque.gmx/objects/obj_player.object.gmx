@@ -26,7 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>///Inicializar
-
 grav = 1;
 spd = 4;
 jump_spd = 12;
@@ -234,7 +233,7 @@ if(exp_actual &gt;= exp_max) {
     instance_create(x,y,obj_arrow); 
     mana -= attack_cost;    
 }
-
+exp_actual += 2;
 
 </string>
           </argument>
@@ -269,11 +268,20 @@ x   =
 
 scale_vida = vida * 200 / vida_maxima;
 scale_mana = mana * 200 / mana_maximo;
+scale_exp = exp_actual * 200 / exp_max;
 
 draw_sprite(spr_health_bar,0,16,16);
 draw_sprite_ext(spr_health,0,17,17,scale_vida,1,0,c_white,1);
 draw_sprite(spr_mana_bar,0,16,37);
 draw_sprite_ext(spr_mana,0,17,38,scale_mana,1,0,c_white,1);
+
+draw_sprite(spr_exp_bar,0,16,59);
+draw_sprite_ext(spr_exp,0,17,60,scale_exp,1,0,c_white,1);
+
+draw_set_font(fnt_exp);
+draw_set_valign(fa_middle);
+draw_set_halign(fa_center);
+draw_text(125,66,string(exp_actual) + " / " + string(exp_max));
 </string>
           </argument>
         </arguments>

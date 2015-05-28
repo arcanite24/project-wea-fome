@@ -20,10 +20,15 @@
       <sprite>sprites\spr_health</sprite>
       <sprite>sprites\spr_mana_bar</sprite>
       <sprite>sprites\spr_mana</sprite>
+      <sprite>sprites\spr_exp_bar</sprite>
+      <sprite>sprites\spr_exp</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <fonts name="fonts">
+    <font>fonts\fnt_exp</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_player</object>
     <object>objects\obj_solid</object>
