@@ -40,9 +40,11 @@ clase = 1; //1.-Arquero 2.-Mago 3.-Guerrero
 
 vida = 100;
 vida_maxima = 100;
+vida_regen = 1; //Per step
 
 mana = 100;
 mana_maximo = 100;
+mana_regen = 0.5;
 
 nivel = 1;
 exp_actual = 0;
@@ -50,6 +52,40 @@ exp_max = nivel * 25; //XP per monster 2-4
 
 arma_actual = 0; //Default segun la clase
 damage = 1;
+attack_cost = 10;
+
+//Regen
+alarm[0] = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(vida &lt; vida_maxima) {
+    vida += vida_regen;
+}
+if(mana &lt; mana_maximo) {
+    mana += mana_regen;
+}
+
+alarm[0] = 1;
 </string>
           </argument>
         </arguments>
@@ -133,7 +169,7 @@ if(place_meeting(x+hspd,y,obj_solid)) {
     hspd = 0;
 }
 
-x += hspd;
+x += hspd * global.delta;
 
 if(place_meeting(x,y+vspd,obj_solid)) {
     while(!place_meeting(x,y+sign(vspd),obj_solid)) {
@@ -142,7 +178,7 @@ if(place_meeting(x,y+vspd,obj_solid)) {
     vspd = 0;
 }
 
-y += vspd;
+y += vspd * global.delta;
 </string>
           </argument>
         </arguments>
@@ -194,7 +230,50 @@ if(exp_actual &gt;= exp_max) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(x,y,obj_arrow); 
+            <string>if(mana &gt;= attack_cost) {
+    instance_create(x,y,obj_arrow); 
+    mana -= attack_cost;    
+}
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw bars
+/*
+max hp px = 126
+
+126 = 100
+x   =
+
+*/
+
+scale_vida = vida * 200 / vida_maxima;
+scale_mana = mana * 200 / mana_maximo;
+
+draw_sprite(spr_health_bar,0,16,16);
+draw_sprite_ext(spr_health,0,17,17,scale_vida,1,0,c_white,1);
+draw_sprite(spr_mana_bar,0,16,37);
+draw_sprite_ext(spr_mana,0,17,38,scale_mana,1,0,c_white,1);
 </string>
           </argument>
         </arguments>

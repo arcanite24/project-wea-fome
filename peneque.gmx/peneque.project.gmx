@@ -15,6 +15,12 @@
     <sprites name="Weapon System">
       <sprite>sprites\spr_arrow</sprite>
     </sprites>
+    <sprites name="HUD">
+      <sprite>sprites\spr_health_bar</sprite>
+      <sprite>sprites\spr_health</sprite>
+      <sprite>sprites\spr_mana_bar</sprite>
+      <sprite>sprites\spr_mana</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
