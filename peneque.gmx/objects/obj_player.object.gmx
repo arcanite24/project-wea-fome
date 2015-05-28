@@ -27,16 +27,13 @@
             <kind>1</kind>
             <string>///Inicializar
 
-grav = 2;
+grav = 1;
 spd = 4;
-jump_spd = 24;
+jump_spd = 12;
 max_spd = 6;
 
 hspd = 0;
 vspd = 0;
-
-onGround = false;
-
 </string>
           </argument>
         </arguments>
@@ -66,14 +63,12 @@ right = keyboard_check(ord("D"));
 jump = keyboard_check_pressed(vk_space);
 
 if(place_meeting(x,y+1,obj_solid)) {
-    onGround = true;
     vspd = 0;
     if(jump) {
         vspd = -jump_spd;
     }
 } else {
-    onGround = false;
-    if(vspd &lt; 10) {
+    if(vspd &lt; 5) {
         vspd += grav;
     }
 }
@@ -82,7 +77,6 @@ if(!left &amp;&amp; !right) {
     hspd = 0;
 }
 
-
 if(left) {
     hspd = -spd;
 }
@@ -90,7 +84,22 @@ if(right) {
     hspd = spd;
 }
 
+if(place_meeting(x+hspd,y,obj_solid)) {
+    while(!place_meeting(x+sign(hspd),y,obj_solid)) {
+        x += sign(hspd);
+    }
+    hspd = 0;
+}
+
 x += hspd;
+
+if(place_meeting(x,y+vspd,obj_solid)) {
+    while(!place_meeting(x,y+sign(vspd),obj_solid)) {
+        y += sign(vspd);
+    }
+    vspd = 0;
+}
+
 y += vspd;
 </string>
           </argument>
