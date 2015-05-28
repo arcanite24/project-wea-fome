@@ -35,7 +35,47 @@ max_spd = 6;
 hspd = 0;
 vspd = 0;
 
-jumps = 2;
+//Class system
+clase = 1; //1.-Arquero 2.-Mago 3.-Guerrero
+
+vida = 100;
+vida_maxima = 100;
+
+mana = 100;
+mana_maximo = 100;
+
+nivel = 1;
+exp_actual = 0;
+exp_max = nivel * 25; //XP per monster 2-4
+
+arma_actual = 0; //Default segun la clase
+damage = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Clamp mana &amp; life bars
+
+clamp(vida,0,vida_maxima);
+clamp(mana,0,mana_maximo);
 </string>
           </argument>
         </arguments>
@@ -103,6 +143,35 @@ if(place_meeting(x,y+vspd,obj_solid)) {
 }
 
 y += vspd;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Internal calculations
+
+//Level system
+exp_max = nivel * 25;
+
+if(exp_actual &gt;= exp_max) {
+    nivel += 1;
+    exp_actual = 0;
+}
 </string>
           </argument>
         </arguments>
