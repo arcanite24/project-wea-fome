@@ -28,6 +28,10 @@
             <string>///Iniciar Variable
 
 global.delta = 60 / 1000000 * delta_time;
+
+global.debug = true;
+
+getVida(10);
 </string>
           </argument>
         </arguments>
