@@ -30,6 +30,7 @@ grav = 1;
 spd = 4;
 jump_spd = 12;
 max_spd = 6;
+jumps = 2;
 
 hspd = 0;
 vspd = 0;
@@ -119,6 +120,9 @@ clamp(vida,0,vida_maxima);
 clamp(mana,0,mana_maximo);
 global.playerx = x;
 global.playery = y;
+
+view_xview[0] += ((x-(view_wview[0]/2)) - view_xview[0]) * 0.5;
+view_yview[0] += ((y-(view_hview[0]/2)) - view_yview[0]) * 0.5;
 </string>
           </argument>
         </arguments>
@@ -148,13 +152,16 @@ jump = keyboard_check_pressed(vk_space);
 
 if(place_meeting(x,y+1,obj_solid)) {
     vspd = 0;
-    if(jump) {
-        vspd = -jump_spd;
-    }
+    jumps = 2;
 } else {
     if(vspd &lt; 5) {
         vspd += grav;
     }
+}
+
+if(jump &amp;&amp; jumps &gt; 0) {
+    vspd = -jump_spd;
+    jumps--;
 }
 
 if(!left &amp;&amp; !right) {

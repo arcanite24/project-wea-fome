@@ -26,11 +26,14 @@
           <argument>
             <kind>1</kind>
             <string>hspd = -2;
+vspd = 0;
+grav = 2;
 
 vida = 40;
 vida_maxima = 40;
 exp_drop = 10;
 dmg = choose(25,25,25,50,99);
+radar = choose(200,500,500,800,800);
 </string>
           </argument>
         </arguments>
@@ -76,11 +79,49 @@ dmg = choose(25,25,25,50,99);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>enemy_ai();
+            <string>///AI, life, scale
+
+enemy_ai(radar);
 
 scale = vida * 30 / vida_maxima;
 
 if(vida &lt;= 0) instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Gravity stuff
+if(place_meeting(x,y+1,obj_solid)) {
+    vspd = 0;
+} else {
+    if(vspd &lt; 5) {
+        vspd += grav;
+    }
+}
+if(place_meeting(x,y+vspd,obj_solid)) {
+    while(!place_meeting(x,y+sign(vspd),obj_solid)) {
+        y += sign(vspd);
+    }
+    vspd = 0;
+}
+
+y += vspd * global.delta;
 </string>
           </argument>
         </arguments>
@@ -108,7 +149,7 @@ draw_sprite(spr_enemy_bar,0,x,y-8);
 draw_sprite_ext(spr_enemy_health,0,x+1,y-7,scale,1,0,c_white,1);
 
 if(global.debug) {
-    draw_circle(x,y,100,1);
+    draw_circle(x,y,radar/2,1);
 }
 </string>
           </argument>

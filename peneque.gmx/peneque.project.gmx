@@ -42,6 +42,7 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\enemy_ai.gml</script>
+    <script>scripts\script1.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_exp</font>

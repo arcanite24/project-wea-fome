@@ -9,7 +9,7 @@ if(piso && !wall) {
 }
 
 if(r >= 99) {
-    if(distance_to_object(obj_player) < 200) {
+    if(distance_to_object(obj_player) < argument0) {
         var f =instance_create(x,y,obj_enemy_arrow);
         f.damage = dmg;
     }
