@@ -10,6 +10,7 @@
   <sprites name="sprites">
     <sprites name="Player">
       <sprite>sprites\spr_player</sprite>
+      <sprite>sprites\spr_shield</sprite>
     </sprites>
     <sprites name="Core">
       <sprite>sprites\spr_block</sprite>
@@ -46,8 +47,8 @@
     <font>fonts\fnt_exp</font>
   </fonts>
   <objects name="objects">
-    <object>objects\obj_enemy</object>
     <object>objects\obj_player</object>
+    <object>objects\obj_enemy</object>
     <object>objects\obj_solid</object>
     <objects name="Core">
       <object>objects\obj_core</object>
@@ -55,12 +56,14 @@
     <objects name="Weapon System">
       <object>objects\obj_arrow</object>
       <object>objects\obj_fireball</object>
-      <objects name="Aux">
-        <object>objects\obj_explosion</object>
-      </objects>
+      <object>objects\obj_shield</object>
+    </objects>
+    <objects name="Aux">
+      <object>objects\obj_explosion</object>
     </objects>
     <objects name="Enemy Weapons">
       <object>objects\obj_enemy_arrow</object>
+      <object>objects\obj_enemy_projectile</object>
     </objects>
   </objects>
   <rooms name="rooms">
