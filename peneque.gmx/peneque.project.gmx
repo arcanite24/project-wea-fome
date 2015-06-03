@@ -14,6 +14,7 @@
     </sprites>
     <sprites name="Core">
       <sprite>sprites\spr_block</sprite>
+      <sprite>sprites\spr_void</sprite>
     </sprites>
     <sprites name="Weapon System">
       <sprite>sprites\spr_arrow</sprite>
@@ -29,6 +30,10 @@
       <sprite>sprites\spr_mana</sprite>
       <sprite>sprites\spr_exp_bar</sprite>
       <sprite>sprites\spr_exp</sprite>
+      <sprites name="Inventory">
+        <sprite>sprites\spr_slot</sprite>
+        <sprite>sprites\spr_selected_slot</sprite>
+      </sprites>
     </sprites>
     <sprites name="Enemy">
       <sprite>sprites\spr_enemy</sprite>
@@ -42,7 +47,13 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\enemy_ai.gml</script>
-    <script>scripts\script1.gml</script>
+    <scripts name="HUD">
+      <script>scripts\draw_item.gml</script>
+    </scripts>
+    <scripts name="Weapon System">
+      <script>scripts\set_projectile.gml</script>
+      <script>scripts\set_cost_damage.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_exp</font>
@@ -53,18 +64,22 @@
     <object>objects\obj_solid</object>
     <objects name="Core">
       <object>objects\obj_core</object>
+      <object>objects\obj_void</object>
     </objects>
     <objects name="Weapon System">
       <object>objects\obj_arrow</object>
       <object>objects\obj_fireball</object>
       <object>objects\obj_shield</object>
-    </objects>
-    <objects name="Aux">
-      <object>objects\obj_explosion</object>
+      <objects name="Aux">
+        <object>objects\obj_explosion</object>
+      </objects>
     </objects>
     <objects name="Enemy Weapons">
       <object>objects\obj_enemy_arrow</object>
       <object>objects\obj_enemy_projectile</object>
+    </objects>
+    <objects name="HUD">
+      <object>objects\obj_slot</object>
     </objects>
   </objects>
   <rooms name="rooms">
