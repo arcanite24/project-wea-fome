@@ -26,8 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>///Inicializar
-//Variable reservada
-a = obj_void; //OJO
+
+//DEBUG
+make_drop(2,x+40,y);
+make_drop(1,x-40,y);
 
 grav = 1;
 spd = 4;
@@ -69,11 +71,11 @@ global.playerid = id;
 alarm[0] = 1;
 
 //Inventory
-global.slot1 = 1;
-global.slot2 = 2;
-global.slot3 = 2;
-global.slot4 = 2;
-global.slot5 = 1;
+global.slot1 = 0;
+global.slot2 = 0;
+global.slot3 = 0;
+global.slot4 = 0;
+global.slot5 = 0;
 global.slot_actual = 1;
 </string>
           </argument>
@@ -168,7 +170,7 @@ if(place_meeting(x,y+1,obj_solid)) {
     vspd = 0;
     jumps = 2;
 } else {
-    if(vspd &lt; 5) {
+    if(vspd &lt; 10) {
         vspd += grav;
     }
 }
@@ -291,6 +293,7 @@ instance_deactivate_region(view_xview[0]-128,view_yview[0]-128, view_wview[0]+12
             <kind>1</kind>
             <string>///Inventory Control
 set_cost_damage();
+update_equiped_weapon();
 
 if(keyboard_check_pressed(ord("1"))) {
     arma_actual = global.slot1;
@@ -312,9 +315,6 @@ if(keyboard_check_pressed(ord("5"))) {
     arma_actual = global.slot5;
     global.slot_actual = 5;
 }
-
-
-
 </string>
           </argument>
         </arguments>

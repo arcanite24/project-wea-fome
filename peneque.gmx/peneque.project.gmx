@@ -15,6 +15,9 @@
     <sprites name="Core">
       <sprite>sprites\spr_block</sprite>
       <sprite>sprites\spr_void</sprite>
+      <sprites name="Drop">
+        <sprite>sprites\spr_dropbg</sprite>
+      </sprites>
     </sprites>
     <sprites name="Weapon System">
       <sprite>sprites\spr_arrow</sprite>
@@ -42,6 +45,10 @@
         <sprite>sprites\spr_enemy_health</sprite>
       </sprites>
     </sprites>
+    <sprites name="Render Sprites">
+      <sprite>sprites\render_1</sprite>
+      <sprite>sprites\render_2</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -53,6 +60,9 @@
     <scripts name="Weapon System">
       <script>scripts\set_projectile.gml</script>
       <script>scripts\set_cost_damage.gml</script>
+      <script>scripts\get_equiped_weapon.gml</script>
+      <script>scripts\make_drop.gml</script>
+      <script>scripts\update_equiped_weapon.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -73,6 +83,7 @@
       <objects name="Aux">
         <object>objects\obj_explosion</object>
       </objects>
+      <object>objects\obj_drop</object>
     </objects>
     <objects name="Enemy Weapons">
       <object>objects\obj_enemy_arrow</object>
