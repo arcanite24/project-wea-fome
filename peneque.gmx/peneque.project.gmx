@@ -37,6 +37,8 @@
         <sprite>sprites\spr_enemy_health</sprite>
       </sprites>
     </sprites>
+    <sprite>sprites\sprite15</sprite>
+    <sprite>sprites\sprite16</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
