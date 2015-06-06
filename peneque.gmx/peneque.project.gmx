@@ -9,6 +9,14 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprites name="Player">
+      <sprites name="Player Animations">
+        <sprite>sprites\spr_player_idle</sprite>
+        <sprite>sprites\spr_player_walk</sprite>
+        <sprite>sprites\spr_player_jump</sprite>
+        <sprite>sprites\spr_soma_jump</sprite>
+        <sprite>sprites\spr_soma_walk</sprite>
+        <sprite>sprites\spr_soma_idle</sprite>
+      </sprites>
       <sprite>sprites\spr_player</sprite>
       <sprite>sprites\spr_shield</sprite>
     </sprites>
