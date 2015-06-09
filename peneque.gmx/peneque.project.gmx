@@ -3,8 +3,48 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
+  <datafiles number="2" name="datafiles">
+    <datafiles number="2" name="htme">
+      <datafile>
+        <name>README.txt</name>
+        <exists>-1</exists>
+        <size>109</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>README.txt</filename>
+      </datafile>
+      <datafile>
+        <name>LICENSE.txt</name>
+        <exists>-1</exists>
+        <size>1131</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>LICENSE.txt</filename>
+      </datafile>
+    </datafiles>
+  </datafiles>
   <NewExtensions>
     <extension index="0">extensions\JS_ext</extension>
+    <extension index="1">extensions\Multiplayer Engine PLUS</extension>
+    <extension index="2">extensions\Inventory extension</extension>
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
@@ -26,12 +66,17 @@
       <sprites name="Drop">
         <sprite>sprites\spr_dropbg</sprite>
       </sprites>
+      <sprite>sprites\spr_mid_platform</sprite>
+      <sprite>sprites\spr_right_platform</sprite>
+      <sprite>sprites\spr_left_platform</sprite>
     </sprites>
     <sprites name="Weapon System">
       <sprite>sprites\spr_arrow</sprite>
       <sprite>sprites\spr_fireball</sprite>
       <sprites name="Animations">
         <sprite>sprites\spr_explosion_anim</sprite>
+        <sprite>sprites\spr_bow_motion</sprite>
+        <sprite>sprites\spr_arrow_motion</sprite>
       </sprites>
     </sprites>
     <sprites name="HUD">
@@ -57,10 +102,12 @@
       <sprite>sprites\render_1</sprite>
       <sprite>sprites\render_2</sprite>
     </sprites>
+    <sprite>sprites\sprite36</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
+    <script>scripts\make_animation.gml</script>
     <script>scripts\enemy_ai.gml</script>
     <scripts name="HUD">
       <script>scripts\draw_item.gml</script>
@@ -77,12 +124,18 @@
     <font>fonts\fnt_exp</font>
   </fonts>
   <objects name="objects">
+    <objects name="Platforms">
+      <object>objects\obj_mid_plat</object>
+      <object>objects\obj_right_plat</object>
+      <object>objects\obj_left_plat</object>
+    </objects>
     <object>objects\obj_player</object>
     <object>objects\obj_enemy</object>
     <object>objects\obj_solid</object>
     <objects name="Core">
       <object>objects\obj_core</object>
       <object>objects\obj_void</object>
+      <object>objects\obj_animation</object>
     </objects>
     <objects name="Weapon System">
       <object>objects\obj_arrow</object>

@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>self</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -31,6 +31,9 @@ gravity_direction = 270;
 a = point_direction(x,y,mouse_x,mouse_y);
 direction = a; 
 image_angle = a;
+
+make_animation(x,y,spr_arrow_motion,18,0.5);
+ani.image_angle = a;
 
 motion_add(direction, 16);
 
