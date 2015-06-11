@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>self</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -140,6 +140,7 @@ if(destroy == false) {
             <kind>1</kind>
             <string>if(!destroy) {
     other.vida -= damage;
+    pop_dmg_text(other.x,other.y,damage,choose(30,40,50));
     instance_destroy();
 }
 </string>

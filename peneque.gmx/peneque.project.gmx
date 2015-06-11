@@ -119,9 +119,15 @@
       <script>scripts\make_drop.gml</script>
       <script>scripts\update_equiped_weapon.gml</script>
     </scripts>
+    <script>scripts\pop_dmg_text.gml</script>
+    <scripts name="Arcade">
+      <script>scripts\gen_world.gml</script>
+      <script>scripts\gen_platform.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_exp</font>
+    <font>fonts\fnt_damage</font>
   </fonts>
   <objects name="objects">
     <objects name="Platforms">
@@ -136,15 +142,17 @@
       <object>objects\obj_core</object>
       <object>objects\obj_void</object>
       <object>objects\obj_animation</object>
+      <object>objects\obj_dmg_text</object>
     </objects>
     <objects name="Weapon System">
+      <object>objects\obj_projectile</object>
       <object>objects\obj_arrow</object>
       <object>objects\obj_fireball</object>
       <object>objects\obj_shield</object>
+      <object>objects\obj_drop</object>
       <objects name="Aux">
         <object>objects\obj_explosion</object>
       </objects>
-      <object>objects\obj_drop</object>
     </objects>
     <objects name="Enemy Weapons">
       <object>objects\obj_enemy_arrow</object>

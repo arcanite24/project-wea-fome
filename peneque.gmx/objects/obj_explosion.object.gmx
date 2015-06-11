@@ -76,6 +76,7 @@ alarm[0] = 30;
           <argument>
             <kind>1</kind>
             <string>other.vida -= 1;
+pop_dmg_text(other.x,other.y,1,30);
 </string>
           </argument>
         </arguments>

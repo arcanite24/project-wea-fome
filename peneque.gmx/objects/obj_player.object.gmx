@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>spr_player</maskName>
   <events>
@@ -30,6 +30,7 @@
 //DEBUG
 make_drop(2,x+40,y);
 make_drop(1,x-40,y);
+gen_world(0,10000);
 
 isShooting = false;
 isRight = true;
@@ -50,12 +51,12 @@ shield_on = false;
 shield_id = noone;
 shield_cost = 1; //Each step
 
-vida = 100;
-vida_maxima = 100;
+vida = 500000;
+vida_maxima = 500000;
 vida_regen = 1; //Per step
 
-mana = 100;
-mana_maximo = 100;
+mana = 100000;
+mana_maximo = 100000;
 mana_regen = 0.5;
 
 nivel = 1;
@@ -101,9 +102,33 @@ global.slot_actual = 1;
           <argument>
             <kind>1</kind>
             <string>///Create particle systems
-mp_system = part_system_create();
-mp_emitter = part_emitter_create(mp_system);
-//mp_particle = part_particles_create_colour();
+
+//BLOOD
+global.blood_sys = part_system_create();
+global.blood_part = part_type_create();
+var p = global.blood_part;
+
+part_type_shape(p,pt_shape_disk);
+part_type_size(p,0.05,0.1,0,0);
+part_type_speed(p,2,5,-0.1,0);
+part_type_direction(p,0,360,0,0);
+part_type_gravity(p,0.2,270);
+part_type_life(p,25,50);
+part_type_colour1(p,c_red);
+
+//ENERGY SHIELD
+global.shield_sys = part_system_create();
+global.shield_part = part_type_create();
+var p2 = global.shield_part;
+
+part_type_shape(p2,pt_shape_spark);
+part_type_size(p2,0.05,0.1,0,0);
+part_type_speed(p2,2,5,-0.1,0);
+part_type_direction(p2,180,360,0,0);
+part_type_gravity(p2,0.7,270);
+part_type_life(p2,25,50);
+part_type_colour1(p2,c_yellow);
+
 </string>
           </argument>
         </arguments>
@@ -415,6 +440,29 @@ if(!isShooting) {
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_enemy_projectile">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>part_particles_create(global.blood_sys,other.x,other.y,global.blood_part,10);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="6" enumb="57">
       <action>
         <libid>1</libid>
@@ -517,6 +565,32 @@ if(mana &gt;= attack_cost) {
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>part_system_destroy(global.blood_sys);
+part_type_destroy(global.blood_part);
+part_system_destroy(global.shield_sys);
+part_type_destroy(global.shield_part);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
@@ -614,6 +688,29 @@ draw_sprite(draw_item(global.slot2),0,200+32*2+10,20);
 draw_sprite(draw_item(global.slot3),0,200+32*3+20,20);
 draw_sprite(draw_item(global.slot4),0,200+32*4+30,20);
 draw_sprite(draw_item(global.slot5),0,200+32*5+40,20);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="116">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>game_restart();
 </string>
           </argument>
         </arguments>

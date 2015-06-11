@@ -43,13 +43,16 @@ y = global.playery;
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>other</whoName>
+        <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_destroy();
+            <string>with(other) {
+    instance_destroy();
+}
+part_particles_create(global.shield_sys,other.x,other.y,global.shield_part,10);
 </string>
           </argument>
         </arguments>
