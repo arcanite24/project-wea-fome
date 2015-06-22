@@ -104,7 +104,10 @@
     </sprites>
     <sprite>sprites\sprite36</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\background0</background>
+    <background>background\background1</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\make_animation.gml</script>

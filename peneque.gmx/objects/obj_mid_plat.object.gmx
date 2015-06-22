@@ -28,6 +28,7 @@
             <string>gen_enemy = true;
 enemies = 1;
 
+
 if(gen_enemy) {
     for (i=0; i&lt;enemies; i+=1)
     {
@@ -36,6 +37,7 @@ if(gen_enemy) {
     };
         
 }
+
 </string>
           </argument>
         </arguments>

@@ -28,9 +28,9 @@
             <string>///Inicializar
 
 //DEBUG
-make_drop(2,x+40,y);
+//make_drop(2,x+40,y);
 make_drop(1,x-40,y);
-gen_world(0,10000);
+//gen_world(0,10000);
 
 isShooting = false;
 isRight = true;
@@ -190,7 +190,7 @@ global.playerx = x;
 global.playery = y;
 
 //view_xview[0] += ((x-(view_wview[0]/2)) - view_xview[0]) * 0.5;
-view_yview[0] += ((y-(view_hview[0]/2)) - view_yview[0]) * 0.5;
+//view_yview[0] += ((y-(view_hview[0]/2)) - view_yview[0]) * 0.5;
 </string>
           </argument>
         </arguments>
@@ -400,8 +400,9 @@ if(keyboard_check_pressed(ord("5"))) {
           <argument>
             <kind>1</kind>
             <string>///Animation control
-effect_create_above(ef_spark,mouse_x,mouse_y,0.2,c_white);
+//effect_create_above(ef_spark,mouse_x,mouse_y,0.2,c_white);
 
+/*
 if(x &gt; mouse_x) {
     isRight = false;
     image_xscale = -1;
@@ -409,6 +410,7 @@ if(x &gt; mouse_x) {
     isRight = true;
     image_xscale = 1;
 }
+*/
 
 if(y != yprevious) {
     sprite_index = spr_player_jump;
@@ -626,13 +628,13 @@ draw_sprite_ext(spr_health,0,17,17,scale_vida,1,0,c_white,1);
 draw_sprite(spr_mana_bar,0,16,37);
 draw_sprite_ext(spr_mana,0,17,38,scale_mana,1,0,c_white,1);
 
-draw_sprite(spr_exp_bar,0,16,59);
-draw_sprite_ext(spr_exp,0,17,60,scale_exp,1,0,c_white,1);
+//draw_sprite(spr_exp_bar,0,16,59);
+//draw_sprite_ext(spr_exp,0,17,60,scale_exp,1,0,c_white,1);
 
 draw_set_font(fnt_exp);
 draw_set_valign(fa_middle);
 draw_set_halign(fa_center);
-draw_text(125,66,string(exp_actual) + " / " + string(exp_max));
+//draw_text(125,66,string(exp_actual) + " / " + string(exp_max));
 draw_text(125,22,string(floor(vida)) + " / " + string(vida_maxima));
 draw_text(125,44,string(floor(mana)) + " / " + string(mana_maximo));
 </string>
@@ -656,6 +658,7 @@ draw_text(125,44,string(floor(mana)) + " / " + string(mana_maximo));
           <argument>
             <kind>1</kind>
             <string>///Draw inventory
+/*
 if(global.slot_actual == 1) {
     draw_sprite(spr_selected_slot,0,200+32,20);    
 } else {
@@ -688,6 +691,7 @@ draw_sprite(draw_item(global.slot2),0,200+32*2+10,20);
 draw_sprite(draw_item(global.slot3),0,200+32*3+20,20);
 draw_sprite(draw_item(global.slot4),0,200+32*4+30,20);
 draw_sprite(draw_item(global.slot5),0,200+32*5+40,20);
+*/
 </string>
           </argument>
         </arguments>

@@ -35,6 +35,8 @@ exp_drop = 10;
 dmg = choose(25,25,25,50,99);
 shoot_chance = choose(99,99,99,99,99,98,98,98,97);
 radar = choose(200,500,500,800,800);
+
+image_speed = 0.2;
 </string>
           </argument>
         </arguments>
