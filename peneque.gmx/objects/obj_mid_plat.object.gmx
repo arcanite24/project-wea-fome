@@ -25,20 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>gen_enemy = true;
-enemies = 1;
-
-
-if(gen_enemy) {
-    for (i=0; i&lt;enemies; i+=1)
-    {
-        e = instance_create(x,y-64,obj_enemy);
-        e.shoot_chance = random_range(50,90);
-    };
-        
-}
-
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>

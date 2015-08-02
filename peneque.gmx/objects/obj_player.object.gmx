@@ -32,6 +32,10 @@
 make_drop(1,x-40,y);
 //gen_world(0,10000);
 
+//Screen
+shake = 0;
+shake_decay = 0.9;
+
 isShooting = false;
 isRight = true;
 grav = 1;
@@ -189,8 +193,16 @@ clamp(mana,0,mana_maximo);
 global.playerx = x;
 global.playery = y;
 
-//view_xview[0] += ((x-(view_wview[0]/2)) - view_xview[0]) * 0.5;
-//view_yview[0] += ((y-(view_hview[0]/2)) - view_yview[0]) * 0.5;
+
+view_xview[0] += ((x-(view_wview[0]/2)) - view_xview[0]) * 0.5;
+view_yview[0] += ((y-(view_hview[0]/2)) - view_yview[0]) * 0.5;
+clamp(view_xview[0],0,room_width);
+clamp(view_yview[0],0,room_height);
+
+view_xview[0] += random_range(-shake,shake);
+view_yview[0] += random_range(-shake,shake);
+
+shake *= shake_decay;
 </string>
           </argument>
         </arguments>
@@ -714,7 +726,7 @@ draw_sprite(draw_item(global.slot5),0,200+32*5+40,20);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>game_restart();
+            <string>shake = 15;
 </string>
           </argument>
         </arguments>

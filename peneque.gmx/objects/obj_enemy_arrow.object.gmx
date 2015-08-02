@@ -37,7 +37,7 @@ motion_add(direction, 16);
 destroy = false;
 
 //Atributos
-damage = 10;
+damage = choose(10,15,20,25,30);
 
 </string>
           </argument>
@@ -137,6 +137,7 @@ if(destroy == false) {
           <argument>
             <kind>1</kind>
             <string>other.vida -= damage;
+other.shake = damage/2;
 instance_destroy();
 </string>
           </argument>

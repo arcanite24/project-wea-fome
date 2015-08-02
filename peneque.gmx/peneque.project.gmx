@@ -41,11 +41,7 @@
       </datafile>
     </datafiles>
   </datafiles>
-  <NewExtensions>
-    <extension index="0">extensions\JS_ext</extension>
-    <extension index="1">extensions\Multiplayer Engine PLUS</extension>
-    <extension index="2">extensions\Inventory extension</extension>
-  </NewExtensions>
+  <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprites name="Player">

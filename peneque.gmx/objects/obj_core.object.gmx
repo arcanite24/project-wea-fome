@@ -31,7 +31,6 @@ global.delta = 60 / 1000000 * delta_time;
 
 global.debug = false;
 
-getVida(10);
 </string>
           </argument>
         </arguments>
